@@ -16,13 +16,16 @@
    - Please zero pad [Your_Team_ID] into two digits: e.g. 00, 01, 02 
 3. Put the pretrained model in `./model_zoo/[Your_Team_ID]_[Your_Model_Name].[pth or pt or ckpt]`
    - Please zero pad [Your_Team_ID] into two digits: e.g. 00, 01, 02  
-5. Add your model to the model loader `./test_demo/select_model` as follows:
+4. Add your model to the model loader `./test_demo/select_model` as follows:
     ```python
         elif model_id == [Your_Team_ID]:
             # define your model and load the checkpoint
     ```
    - Note: Please set the correct data_range, either 255.0 or 1.0
-
+5. Send us the command to download your code, e.g, 
+   - `git clone [Your repository link]`
+   - We will do the following steps to add your code and model checkpoint to the repository.
+   
 ## How to calculate the number of parameters, FLOPs, and activations
 
 ```python
