@@ -145,7 +145,7 @@ def run(model, model_name, data_range, tile, logger, device, args, mode="test"):
         # PSNR and SSIM
         # --------------------------------
 
-        print(img_sr.shape, img_hr.shape)
+        # print(img_sr.shape, img_hr.shape)
         psnr = util.calculate_psnr(img_sr, img_hr, border=border)
         results[f"{mode}_psnr"].append(psnr)
 
@@ -163,7 +163,7 @@ def run(model, model_name, data_range, tile, logger, device, args, mode="test"):
         #     ssim_y = util.calculate_ssim(img_sr_y, img_hr_y, border=border)
         #     results[f"{mode}_psnr_y"].append(psnr_y)
         #     results[f"{mode}_ssim_y"].append(ssim_y)
-        print(os.path.join(save_path, img_name+ext))
+        # print(os.path.join(save_path, img_name+ext))
         util.imsave(img_sr, os.path.join(save_path, img_name+ext))
 
     results[f"{mode}_memory"] = torch.cuda.max_memory_allocated(torch.cuda.current_device()) / 1024 ** 2
@@ -252,7 +252,7 @@ def main(args):
         fmt = "{:20s}\t{:10s}\t{:14s}\t{:10s}\t{:10s}\t{:8s}\t{:8s}\t{:8s}\n"
         s = fmt.format("Model", "Val PSNR", "Val Time [ms]", "Params [M]", "FLOPs [G]", "Acts [M]", "Mem [M]", "Conv")
     for k, v in results.items():
-        print(v.keys())
+        # print(v.keys())
         if args.hybrid_test:
             val_psnr = f"{v['hybrid_test_ave_psnr']:2.2f}"
             val_time = f"{v['hybrid_test_ave_runtime']:3.2f}"
