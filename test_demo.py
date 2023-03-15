@@ -19,7 +19,7 @@ def select_model(args, device):
         # RFDN baseline, AIM 2020 Efficient SR Challenge winner
         from models.team00_RFDN import RFDN
         name, data_range = f"{model_id:02}_RFDN_baseline", 255.0
-        model_path = os.path.join('model_zoo', 'rfdn_baseline.pth')
+        model_path = os.path.join('model_zoo', 'team00_rfdn.pth')
         model = RFDN()
         model.load_state_dict(torch.load(model_path), strict=True)
     else:
