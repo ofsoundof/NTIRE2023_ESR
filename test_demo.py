@@ -27,7 +27,7 @@ def select_model(args, device):
 
     # print(model)
     model.eval()
-    tile = 256 if model_id == 2 else None
+    tile = None
     for k, v in model.named_parameters():
         v.requires_grad = False
     model = model.to(device)
@@ -181,8 +181,8 @@ def run(model, model_name, data_range, tile, logger, device, args, mode="test"):
 
 def main(args):
 
-    utils_logger.logger_info("NTIRE2022-EfficientSR", log_path="NTIRE2022-EfficientSR.log")
-    logger = logging.getLogger("NTIRE2022-EfficientSR")
+    utils_logger.logger_info("NTIRE2023-EfficientSR", log_path="NTIRE2023-EfficientSR.log")
+    logger = logging.getLogger("NTIRE2023-EfficientSR")
 
     # --------------------------------
     # basic settings
@@ -278,9 +278,9 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("NTIRE2022-EfficientSR")
-    parser.add_argument("--data_dir", default="/cluster/work/cvl/yawli/data/NTIRE2022_Challenge", type=str)
-    parser.add_argument("--save_dir", default="/cluster/work/cvl/yawli/data/NTIRE2022_Challenge/results", type=str)
+    parser = argparse.ArgumentParser("NTIRE2023-EfficientSR")
+    parser.add_argument("--data_dir", default="/cluster/work/cvl/yawli/data/NTIRE2023_Challenge", type=str)
+    parser.add_argument("--save_dir", default="/cluster/work/cvl/yawli/data/NTIRE2023_Challenge/results", type=str)
     parser.add_argument("--model_id", default=0, type=int)
     parser.add_argument("--include_test", action="store_true", help="Inference on the DIV2K test set")
     parser.add_argument("--hybrid_test", action="store_true", help="Hybrid test on DIV2K and LSDIR test set")
